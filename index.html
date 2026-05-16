@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Obrolan Hati — Bicara dari hati, cairkan suasana.</title>
-  <meta name="description" content="Obrolan Hati adalah card game digital untuk anak muda Indonesia. Cairkan suasana, perdalam koneksi, dan ciptakan momen tak terlupakan." />
+  <title>Flip & Spill — Flip the card, spill the tea.</title>
+  <meta name="description" content="Flip & Spill is a digital card game for young people worldwide. Break the ice, deepen connections, and create unforgettable moments — offline, no account needed." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -14,11 +14,12 @@
       theme: {
         extend: {
           colors: {
-            brand: '#5B21B6',
-            orange: '#F97316',
-            cream: '#FFFBF0',
-            dark: '#1A1033',
-            muted: '#6B6391',
+            brand:    '#5B21B6',
+            pink:     '#FF1493',
+            yellow:   '#FAFF00',
+            cream:    '#FFFBF0',
+            dark:     '#1A1033',
+            muted:    '#6B6391',
           },
           fontFamily: {
             outfit: ['Outfit', 'sans-serif'],
@@ -33,77 +34,51 @@
     body { background-color: #FFFBF0; color: #1A1033; }
 
     /* Neo-brutalist shadow utility */
-    .neo { box-shadow: 4px 4px 0 #1A1033; border: 2px solid #1A1033; }
+    .neo    { box-shadow: 4px 4px 0 #1A1033; border: 2px solid #1A1033; }
     .neo-lg { box-shadow: 6px 6px 0 #1A1033; border: 2px solid #1A1033; }
     .neo-sm { box-shadow: 3px 3px 0 #1A1033; border: 2px solid #1A1033; }
 
     /* Button press effect */
-    .btn-press {
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .btn-press:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0 #1A1033 !important;
-    }
-    .btn-press:active {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 #1A1033 !important;
-    }
+    .btn-press { transition: transform 0.1s ease, box-shadow 0.1s ease; }
+    .btn-press:hover  { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 #1A1033 !important; }
+    .btn-press:active { transform: translate(2px,2px);   box-shadow: 2px 2px 0 #1A1033 !important; }
 
     /* Card hover lift */
-    .card-hover {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card-hover:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 7px 7px 0 #1A1033 !important;
-    }
+    .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card-hover:hover { transform: translate(-3px,-3px); box-shadow: 7px 7px 0 #1A1033 !important; }
 
     /* Navbar */
     #navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: #FFFBF0;
       border-bottom: 2px solid #1A1033;
     }
 
-    /* Hero gradient mesh */
-    .hero-bg {
-      background: #FFFBF0;
-      position: relative;
-      overflow: hidden;
-    }
+    /* Hero gradient mesh — neon yellow + pink accents */
+    .hero-bg { background: #FFFBF0; position: relative; overflow: hidden; }
     .hero-bg::before {
       content: '';
-      position: absolute;
-      top: -100px;
-      right: -100px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(91,33,182,0.12) 0%, transparent 70%);
+      position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,20,147,0.13) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-bg::after {
       content: '';
-      position: absolute;
-      bottom: -80px;
-      left: -80px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%);
+      position: absolute; bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(250,255,0,0.14) 0%, transparent 70%);
       pointer-events: none;
     }
 
     /* Marquee */
     .marquee-track {
-      display: flex;
-      width: max-content;
+      display: flex; width: max-content;
       animation: marquee 20s linear infinite;
     }
     @keyframes marquee {
       from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      to   { transform: translateX(-50%); }
     }
 
     /* Mobile menu */
@@ -113,65 +88,57 @@
     /* Fade in */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .fade-up { animation: fadeUp 0.6s ease forwards; }
-    .fade-up-delay-1 { animation: fadeUp 0.6s 0.1s ease forwards; opacity: 0; }
-    .fade-up-delay-2 { animation: fadeUp 0.6s 0.2s ease forwards; opacity: 0; }
-    .fade-up-delay-3 { animation: fadeUp 0.6s 0.3s ease forwards; opacity: 0; }
+    .fade-up          { animation: fadeUp 0.6s ease forwards; }
+    .fade-up-delay-1  { animation: fadeUp 0.6s 0.1s ease forwards; opacity: 0; }
+    .fade-up-delay-2  { animation: fadeUp 0.6s 0.2s ease forwards; opacity: 0; }
+    .fade-up-delay-3  { animation: fadeUp 0.6s 0.3s ease forwards; opacity: 0; }
 
     /* Bounce dot */
     @keyframes bounceDot {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      50%       { transform: translateY(-8px); }
     }
     .bounce { animation: bounceDot 1.5s ease-in-out infinite; }
 
     /* Policy tab active */
-    .tab-btn.active { background: #5B21B6; color: #fff; border-color: #1A1033; }
-    .tab-content { display: none; }
+    .tab-btn.active   { background: #5B21B6 !important; color: #fff; border-color: #1A1033; }
+    .tab-content      { display: none; }
     .tab-content.active { display: block; }
-
-    /* Noise overlay */
-    .noise::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      border-radius: inherit;
-    }
 
     /* Stats ticker */
     .stat-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 16px;
-      background: #1A1033;
-      color: #FFFBF0;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 13px;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 16px; background: #1A1033; color: #FFFBF0;
+      border-radius: 999px; font-weight: 700; font-size: 13px;
       white-space: nowrap;
     }
 
-    /* Step connector line */
-    .step-line::after {
-      content: '';
-      position: absolute;
-      top: 28px;
-      left: calc(100% + 4px);
-      width: calc(100% - 8px);
-      height: 2px;
-      background: #1A1033;
-      display: block;
-    }
-
     /* Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar       { width: 6px; }
     ::-webkit-scrollbar-track { background: #FFFBF0; }
     ::-webkit-scrollbar-thumb { background: #5B21B6; border-radius: 3px; }
+
+    /* Logo wordmark */
+    .logo-flip  { color: #FAFF00; -webkit-text-stroke: 1.5px #1A1033; }
+    .logo-spill { color: #FF1493; -webkit-text-stroke: 1.5px #1A1033; }
+
+    /* Neon yellow CTA button */
+    .cta-yellow {
+      background: #FAFF00;
+      color: #1A1033;
+      border: 2px solid #1A1033;
+      box-shadow: 4px 4px 0 #1A1033;
+    }
+    .cta-yellow:hover {
+      transform: translate(-2px,-2px);
+      box-shadow: 6px 6px 0 #1A1033 !important;
+    }
+    .cta-yellow:active {
+      transform: translate(2px,2px);
+      box-shadow: 2px 2px 0 #1A1033 !important;
+    }
   </style>
 </head>
 <body>
@@ -179,18 +146,27 @@
 <!-- ============================================================ NAVBAR -->
 <nav id="navbar">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="#home" class="flex items-center gap-2 font-black text-xl" style="color:#1A1033;">
-      <span class="w-9 h-9 rounded-xl flex items-center justify-center text-xl neo" style="background:#5B21B6;">💬</span>
-      <span>Obrolan<span style="color:#F97316;">Hati</span></span>
+
+    <!-- Logo wordmark -->
+    <a href="#home" class="flex items-center gap-2 font-black text-xl leading-none select-none">
+      <!-- SVG placeholder for card-flip icon — swap src when ready -->
+      <span class="w-9 h-9 rounded-xl flex items-center justify-center neo" style="background:#5B21B6;">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="4" width="13" height="17" rx="2" fill="#FAFF00" stroke="#1A1033" stroke-width="1.5"/>
+          <rect x="7" y="1" width="13" height="17" rx="2" fill="#FF1493" stroke="#1A1033" stroke-width="1.5"/>
+        </svg>
+      </span>
+      <span>
+        <span class="logo-flip">Flip</span>&nbsp;&amp;&nbsp;<span class="logo-spill">Spill</span>
+      </span>
     </a>
 
     <!-- Desktop links -->
     <div class="hidden md:flex items-center gap-2">
-      <a href="#home" class="px-4 py-2 font-700 text-sm rounded-xl hover:bg-purple-50 transition-colors" style="font-weight:700;">Beranda</a>
-      <a href="#privacy" class="px-4 py-2 font-700 text-sm rounded-xl hover:bg-purple-50 transition-colors" style="font-weight:700;">Privasi</a>
-      <a href="#terms" class="px-4 py-2 font-700 text-sm rounded-xl hover:bg-purple-50 transition-colors" style="font-weight:700;">Syarat & Ketentuan</a>
-      <a href="#download" class="ml-2 px-5 py-2 rounded-xl text-sm text-white neo btn-press" style="background:#5B21B6;font-weight:800;">Download App ↓</a>
+      <a href="#home"     class="px-4 py-2 font-bold text-sm rounded-xl hover:bg-yellow-50 transition-colors">Home</a>
+      <a href="#privacy"  class="px-4 py-2 font-bold text-sm rounded-xl hover:bg-yellow-50 transition-colors">Privacy</a>
+      <a href="#terms"    class="px-4 py-2 font-bold text-sm rounded-xl hover:bg-yellow-50 transition-colors">Terms</a>
+      <a href="#download" class="ml-2 px-5 py-2 rounded-xl text-sm font-black neo btn-press cta-yellow transition-all">Download App ↓</a>
     </div>
 
     <!-- Hamburger -->
@@ -203,10 +179,10 @@
 
   <!-- Mobile menu -->
   <div id="mobile-menu" class="md:hidden border-t-2 border-gray-900 bg-cream px-4 py-4 flex flex-col gap-2">
-    <a href="#home" class="py-3 font-bold border-b border-gray-200" onclick="toggleMenu()">🏠 Beranda</a>
-    <a href="#privacy" class="py-3 font-bold border-b border-gray-200" onclick="toggleMenu()">🔒 Kebijakan Privasi</a>
-    <a href="#terms" class="py-3 font-bold border-b border-gray-200" onclick="toggleMenu()">📜 Syarat & Ketentuan</a>
-    <a href="#download" class="mt-2 py-3 text-center rounded-xl text-white font-black neo" style="background:#5B21B6;" onclick="toggleMenu()">⬇️ Download Gratis</a>
+    <a href="#home"     class="py-3 font-bold border-b border-gray-200" onclick="toggleMenu()">🏠 Home</a>
+    <a href="#privacy"  class="py-3 font-bold border-b border-gray-200" onclick="toggleMenu()">🔒 Privacy Policy</a>
+    <a href="#terms"    class="py-3 font-bold border-b border-gray-200" onclick="toggleMenu()">📜 Terms &amp; Conditions</a>
+    <a href="#download" class="mt-2 py-3 text-center rounded-xl font-black neo cta-yellow" onclick="toggleMenu()">⬇️ Download Free</a>
   </div>
 </nav>
 
@@ -214,71 +190,75 @@
 <!-- ============================================================ HERO -->
 <section id="home" class="hero-bg pt-16 pb-12 px-4">
   <div class="max-w-4xl mx-auto text-center">
+
     <!-- Tag -->
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full neo mb-6 fade-up" style="background:#EDE9FE;">
-      <span class="text-sm font-bold" style="color:#5B21B6;">🎉 Card Game Digital untuk Gen Z Indonesia</span>
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full neo mb-6 fade-up" style="background:#FAFF00;">
+      <span class="text-sm font-bold" style="color:#1A1033;">✦ The Digital Card Game for Everyone</span>
     </div>
 
     <!-- H1 -->
     <h1 class="text-5xl md:text-7xl font-black leading-tight mb-4 fade-up-delay-1" style="color:#1A1033;">
-      Obrolan<br/><span style="color:#5B21B6;">Hati</span>
+      <span class="logo-flip" style="-webkit-text-stroke:2px #1A1033;">Flip</span>
+      <span style="color:#1A1033;"> &amp; </span>
+      <span class="logo-spill" style="-webkit-text-stroke:2px #1A1033;">Spill</span>
     </h1>
 
     <!-- Tagline -->
-    <p class="text-xl md:text-2xl font-bold mb-3 fade-up-delay-2" style="color:#F97316;">
-      "Bicara dari hati, cairkan suasana."
+    <p class="text-xl md:text-2xl font-black mb-3 fade-up-delay-2" style="color:#FF1493;">
+      "Flip the card, spill the tea."
     </p>
 
     <!-- Sub description -->
     <p class="text-base md:text-lg max-w-2xl mx-auto mb-8 fade-up-delay-3" style="color:#6B6391;">
-      Game kartu digital untuk nongkrong bareng teman, pasangan, atau komunitas. Cairkan hawa canggung, perdalam koneksi, dan ciptakan momen tak terlupakan — tanpa internet, tanpa akun.
+      A digital card game for hangouts, dates, and squad nights. Break the ice, deepen connections, and spark unforgettable moments — no internet, no account, zero boring convos.
     </p>
 
     <!-- CTA Buttons -->
     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10 fade-up-delay-3">
-      <a id="download" href="#" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl text-white font-black text-lg neo-lg btn-press" style="background:#5B21B6;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.303a1 1 0 010 1.192l-2.303 2.303-2.302-2.303 2.302-2.302a1 1 0 012.303 1.11zm-11.26-7.22L17.375 10.52l-2.302 2.303-2.302-2.303L5.438 4.184z"/></svg>
+      <a id="download" href="#" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-black text-lg neo-lg btn-press cta-yellow transition-all">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#1A1033"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.303a1 1 0 010 1.192l-2.303 2.303-2.302-2.303 2.302-2.302a1 1 0 012.303 1.11zm-11.26-7.22L17.375 10.52l-2.302 2.303-2.302-2.303L5.438 4.184z"/></svg>
         Get it on Google Play
       </a>
       <a href="#categories" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-black text-lg neo btn-press" style="background:#FFFBF0;">
-        Lihat Kategori 🃏
+        See Categories ✦
       </a>
     </div>
 
     <!-- Stats strip -->
-    <div class="flex flex-wrap justify-center gap-2 mb-2">
-      <span class="stat-pill">🃏 22+ Kategori</span>
-      <span class="stat-pill">🎮 3 Mode Bermain</span>
-      <span class="stat-pill">💬 1000+ Pertanyaan</span>
-      <span class="stat-pill">✅ 100% Gratis</span>
+    <div class="flex flex-wrap justify-center gap-2 mb-2 fade-up-delay-3">
+      <span class="stat-pill">✦ 22+ Categories</span>
+      <span class="stat-pill">✦ 3 Play Modes</span>
+      <span class="stat-pill">✦ 1000+ Prompts</span>
+      <span class="stat-pill">✦ 100% Free</span>
     </div>
   </div>
 </section>
 
+
 <!-- ============================================================ MARQUEE -->
-<div class="overflow-hidden border-t-2 border-b-2 border-gray-900 py-3" style="background:#5B21B6;">
+<div class="overflow-hidden border-t-2 border-b-2 border-gray-900 py-3" style="background:#FF1493;">
   <div class="marquee-track">
-    <span class="text-white font-bold text-sm mx-6">🌊 Deep Talk</span>
-    <span class="text-white font-bold text-sm mx-6">🔥 Brutal Honesty</span>
-    <span class="text-white font-bold text-sm mx-6">🌅 Nostalgia</span>
-    <span class="text-white font-bold text-sm mx-6">💖 Sisi Baper</span>
-    <span class="text-white font-bold text-sm mx-6">🎲 Truth or Dare</span>
-    <span class="text-white font-bold text-sm mx-6">⚖️ Mending Mana?</span>
-    <span class="text-white font-bold text-sm mx-6">👉 Siapa yang Paling...</span>
-    <span class="text-white font-bold text-sm mx-6">📡 Telepati</span>
-    <span class="text-white font-bold text-sm mx-6">🫶 Apresiasi</span>
-    <span class="text-white font-bold text-sm mx-6">🕯️ Titik Terendah</span>
+    <span class="text-white font-black text-sm mx-6">✦ Deep Talk</span>
+    <span class="text-white font-black text-sm mx-6">✦ Brutal Honesty</span>
+    <span class="text-white font-black text-sm mx-6">✦ Nostalgia</span>
+    <span class="text-white font-black text-sm mx-6">✦ Soft Spot</span>
+    <span class="text-white font-black text-sm mx-6">✦ Truth or Dare</span>
+    <span class="text-white font-black text-sm mx-6">✦ This or That?</span>
+    <span class="text-white font-black text-sm mx-6">✦ Most Likely To...</span>
+    <span class="text-white font-black text-sm mx-6">✦ Telepathy</span>
+    <span class="text-white font-black text-sm mx-6">✦ Appreciation</span>
+    <span class="text-white font-black text-sm mx-6">✦ Rock Bottom</span>
     <!-- duplicate for seamless loop -->
-    <span class="text-white font-bold text-sm mx-6">🌊 Deep Talk</span>
-    <span class="text-white font-bold text-sm mx-6">🔥 Brutal Honesty</span>
-    <span class="text-white font-bold text-sm mx-6">🌅 Nostalgia</span>
-    <span class="text-white font-bold text-sm mx-6">💖 Sisi Baper</span>
-    <span class="text-white font-bold text-sm mx-6">🎲 Truth or Dare</span>
-    <span class="text-white font-bold text-sm mx-6">⚖️ Mending Mana?</span>
-    <span class="text-white font-bold text-sm mx-6">👉 Siapa yang Paling...</span>
-    <span class="text-white font-bold text-sm mx-6">📡 Telepati</span>
-    <span class="text-white font-bold text-sm mx-6">🫶 Apresiasi</span>
-    <span class="text-white font-bold text-sm mx-6">🕯️ Titik Terendah</span>
+    <span class="text-white font-black text-sm mx-6">✦ Deep Talk</span>
+    <span class="text-white font-black text-sm mx-6">✦ Brutal Honesty</span>
+    <span class="text-white font-black text-sm mx-6">✦ Nostalgia</span>
+    <span class="text-white font-black text-sm mx-6">✦ Soft Spot</span>
+    <span class="text-white font-black text-sm mx-6">✦ Truth or Dare</span>
+    <span class="text-white font-black text-sm mx-6">✦ This or That?</span>
+    <span class="text-white font-black text-sm mx-6">✦ Most Likely To...</span>
+    <span class="text-white font-black text-sm mx-6">✦ Telepathy</span>
+    <span class="text-white font-black text-sm mx-6">✦ Appreciation</span>
+    <span class="text-white font-black text-sm mx-6">✦ Rock Bottom</span>
   </div>
 </div>
 
@@ -287,27 +267,29 @@
 <section class="py-16 px-4">
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-black mb-3">Kenapa <span style="color:#5B21B6;">Obrolan Hati?</span></h2>
-      <p style="color:#6B6391;" class="text-lg">Dibuat khusus buat anak muda Indonesia, bukan translate-an dari luar.</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-3">Why <span style="color:#5B21B6;">Flip &amp; Spill?</span></h2>
+      <p style="color:#6B6391;" class="text-lg">Built for real conversations — not just small talk.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <!-- Feature 2 -->
-      <div class="rounded-2xl p-6 neo card-hover" style="background:#FEF3C7;">
-        <div class="text-4xl mb-3">🔀</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Feature 1 -->
+      <div class="rounded-2xl p-6 neo card-hover" style="background:#FAFF00;">
+        <div class="mb-3">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="4" y="8" width="22" height="28" rx="3" fill="#5B21B6" stroke="#1A1033" stroke-width="2"/><rect x="14" y="4" width="22" height="28" rx="3" fill="#FF1493" stroke="#1A1033" stroke-width="2"/></svg>
+        </div>
         <h3 class="font-black text-lg mb-2">Smart Shuffle Engine</h3>
-        <p class="text-sm" style="color:#6B6391;">Kartu nggak akan diulang dalam satu sesi. Selalu fresh, selalu beda.</p>
+        <p class="text-sm" style="color:#1A1033;">Cards never repeat in a session. Always fresh, always unpredictable.</p>
+      </div>
+      <!-- Feature 2 -->
+      <div class="rounded-2xl p-6 neo card-hover" style="background:#FCE7F3;">
+        <div class="text-4xl mb-3">🌍</div>
+        <h3 class="font-black text-lg mb-2">Global-Ready Content</h3>
+        <p class="text-sm" style="color:#6B6391;">Cards available in multiple languages — built to connect people everywhere, not just one market.</p>
       </div>
       <!-- Feature 3 -->
-      <div class="rounded-2xl p-6 neo card-hover" style="background:#FCE7F3;">
-        <div class="text-4xl mb-3">🇮🇩</div>
-        <h3 class="font-black text-lg mb-2">100% Konten Lokal</h3>
-        <p class="text-sm" style="color:#6B6391;">Semua prompt ditulis dalam bahasa gaul Gen Z Indonesia — bukan terjemahan!</p>
-      </div>
-      <!-- Feature 4 -->
       <div class="rounded-2xl p-6 neo card-hover" style="background:#D1FAE5;">
         <div class="text-4xl mb-3">✏️</div>
-        <h3 class="font-black text-lg mb-2">Custom Cards <span class="text-xs font-bold px-2 py-0.5 rounded-full text-white" style="background:#F97316;">Coming Soon</span></h3>
-        <p class="text-sm" style="color:#6B6391;">Buat kartu sendiri yang spesifik buat lingkaran pertemananmu!</p>
+        <h3 class="font-black text-lg mb-2">Custom Cards <span class="text-xs font-black px-2 py-0.5 rounded-full text-white" style="background:#FF1493;">Coming Soon</span></h3>
+        <p class="text-sm" style="color:#6B6391;">Write your own cards tailored to your crew's inside jokes and stories.</p>
       </div>
     </div>
   </div>
@@ -318,27 +300,30 @@
 <section class="py-16 px-4" style="background:#1A1033;">
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-10">
-      <h2 class="text-3xl md:text-4xl font-black text-white mb-3">3 Mode Bermain 🎮</h2>
-      <p style="color:#9CA3AF;" class="text-lg">Fleksibel untuk berbagai situasi nongkrong.</p>
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-3">3 Play Modes</h2>
+      <p style="color:#9CA3AF;" class="text-lg">Flex to any hangout vibe.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <!-- Mode 1 -->
       <div class="rounded-2xl p-6 card-hover" style="background:#2D1B69;border:2px solid #5B21B6;box-shadow:4px 4px 0 #5B21B6;">
         <div class="text-5xl mb-4 bounce" style="animation-delay:0s;">🍃</div>
-        <span class="inline-block px-3 py-1 text-xs font-black rounded-full mb-3" style="background:#10B981;color:white;">TANPA NAMA</span>
-        <h3 class="text-xl font-black text-white mb-2">Mode Anonim</h3>
-        <p style="color:#9CA3AF;" class="text-sm">Nggak perlu daftar nama siapapun. Cocok buat refleksi personal atau main santai berdua.</p>
+        <span class="inline-block px-3 py-1 text-xs font-black rounded-full mb-3" style="background:#10B981;color:white;">ANONYMOUS</span>
+        <h3 class="text-xl font-black text-white mb-2">Ghost Mode</h3>
+        <p style="color:#9CA3AF;" class="text-sm">No names needed. Perfect for personal reflection or a chill session with someone new.</p>
       </div>
-      <div class="rounded-2xl p-6 card-hover" style="background:#2D1B69;border:2px solid #F97316;box-shadow:4px 4px 0 #F97316;">
+      <!-- Mode 2 -->
+      <div class="rounded-2xl p-6 card-hover" style="background:#2D1B69;border:2px solid #FAFF00;box-shadow:4px 4px 0 #FAFF00;">
         <div class="text-5xl mb-4 bounce" style="animation-delay:0.3s;">👥</div>
-        <span class="inline-block px-3 py-1 text-xs font-black rounded-full mb-3" style="background:#F97316;color:white;">SEBUT NAMA</span>
-        <h3 class="text-xl font-black text-white mb-2">Mode Nama Pemain</h3>
-        <p style="color:#9CA3AF;" class="text-sm">Daftarin nama semua pemain. Kartu bisa manggil nama spesifik — lebih personal dan kocak!</p>
+        <span class="inline-block px-3 py-1 text-xs font-black rounded-full mb-3" style="background:#FAFF00;color:#1A1033;">NAMED PLAYERS</span>
+        <h3 class="text-xl font-black text-white mb-2">Squad Mode</h3>
+        <p style="color:#9CA3AF;" class="text-sm">Enter everyone's names. Cards call people out by name — personal, chaotic, unforgettable.</p>
       </div>
-      <div class="rounded-2xl p-6 card-hover" style="background:#2D1B69;border:2px solid #EC4899;box-shadow:4px 4px 0 #EC4899;">
+      <!-- Mode 3 -->
+      <div class="rounded-2xl p-6 card-hover" style="background:#2D1B69;border:2px solid #FF1493;box-shadow:4px 4px 0 #FF1493;">
         <div class="text-5xl mb-4 bounce" style="animation-delay:0.6s;">🔀</div>
-        <span class="inline-block px-3 py-1 text-xs font-black rounded-full mb-3" style="background:#EC4899;color:white;">MIX KEDUANYA</span>
-        <h3 class="text-xl font-black text-white mb-2">Mode Campur</h3>
-        <p style="color:#9CA3AF;" class="text-sm">Gabungan dari dua mode di atas. Variasi paling banyak, pengalaman paling seru!</p>
+        <span class="inline-block px-3 py-1 text-xs font-black rounded-full mb-3" style="background:#FF1493;color:white;">MIX IT UP</span>
+        <h3 class="text-xl font-black text-white mb-2">Chaos Mode</h3>
+        <p style="color:#9CA3AF;" class="text-sm">Both modes combined. Maximum variety, maximum energy — the wildest ride.</p>
       </div>
     </div>
   </div>
@@ -349,65 +334,65 @@
 <section id="categories" class="py-16 px-4">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-black mb-3">22+ Kategori Kartu 🃏</h2>
-      <p style="color:#6B6391;" class="text-lg">Diorganisir dalam 4 sesi yang dirancang untuk alur nongkrong yang sempurna.</p>
+      <h2 class="text-3xl md:text-4xl font-black mb-3">22+ Card Categories</h2>
+      <p style="color:#6B6391;" class="text-lg">Organized across 4 sessions for the perfect hangout arc.</p>
     </div>
 
     <!-- SESSION 1 -->
     <div class="mb-10">
-      <div class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl neo font-black text-lg mb-6" style="background:#EDE9FE;">
-        📔 Sesi 1: Sesi Ngobrol <span class="text-sm font-normal ml-1" style="color:#6B6391;">— percakapan bermakna</span>
+      <div class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl neo font-black text-lg mb-6" style="background:#FAFF00;">
+        📔 Session 1: Talk It Out <span class="text-sm font-normal ml-1" style="color:#6B6391;">— meaningful convos</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#EDE9FE;"><div class="text-2xl mb-1">🌊</div><div class="font-black text-sm">Deep Talk</div><div class="text-xs mt-1" style="color:#6B6391;">Percakapan yang dalam</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">Semua Mode</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FEF2F2;"><div class="text-2xl mb-1">🔥</div><div class="font-black text-sm">Brutal Honesty</div><div class="text-xs mt-1" style="color:#6B6391;">Jujur tanpa filter</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#F97316;">Sebut Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FFF7ED;"><div class="text-2xl mb-1">🌅</div><div class="font-black text-sm">Nostalgia</div><div class="text-xs mt-1" style="color:#6B6391;">Kenangan bikin senyum</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">Semua Mode</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FCE7F3;"><div class="text-2xl mb-1">💖</div><div class="font-black text-sm">Sisi Baper</div><div class="text-xs mt-1" style="color:#6B6391;">Hati & asmara</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">Semua Mode</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#EFF6FF;"><div class="text-2xl mb-1">🌀</div><div class="font-black text-sm">Absurd</div><div class="text-xs mt-1" style="color:#6B6391;">Nggak ada yang masuk akal</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">Semua Mode</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FFF1F2;"><div class="text-2xl mb-1">💥</div><div class="font-black text-sm">Chaos Mode</div><div class="text-xs mt-1" style="color:#6B6391;">Siap berantem/ketawa!</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#F97316;">Sebut Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F0FDF4;"><div class="text-2xl mb-1">🚩</div><div class="font-black text-sm">Red or Green Flag</div><div class="text-xs mt-1" style="color:#6B6391;">Nilai perilaku doi</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">Semua Mode</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F5F3FF;"><div class="text-2xl mb-1">🗣️</div><div class="font-black text-sm">Hot Takes</div><div class="text-xs mt-1" style="color:#6B6391;">Opini kontroversial</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Tanpa Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F0F9FF;"><div class="text-2xl mb-1">🕯️</div><div class="font-black text-sm">Titik Terendah</div><div class="text-xs mt-1" style="color:#6B6391;">Sisi paling rapuh</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Tanpa Nama</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#EDE9FE;"><div class="text-2xl mb-1">🌊</div><div class="font-black text-sm">Deep Talk</div><div class="text-xs mt-1" style="color:#6B6391;">Go beneath the surface</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">All Modes</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FEF2F2;"><div class="text-2xl mb-1">🔥</div><div class="font-black text-sm">Brutal Honesty</div><div class="text-xs mt-1" style="color:#6B6391;">Zero filter, all truth</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full font-bold" style="background:#FAFF00;color:#1A1033;">Squad</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FFF7ED;"><div class="text-2xl mb-1">🌅</div><div class="font-black text-sm">Nostalgia</div><div class="text-xs mt-1" style="color:#6B6391;">Throwback feels</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">All Modes</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FCE7F3;"><div class="text-2xl mb-1">💖</div><div class="font-black text-sm">Soft Spot</div><div class="text-xs mt-1" style="color:#6B6391;">Heart &amp; romance</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">All Modes</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#EFF6FF;"><div class="text-2xl mb-1">🌀</div><div class="font-black text-sm">Absurd</div><div class="text-xs mt-1" style="color:#6B6391;">Nothing makes sense</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">All Modes</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FFF1F2;"><div class="text-2xl mb-1">💥</div><div class="font-black text-sm">Chaos Round</div><div class="text-xs mt-1" style="color:#6B6391;">Ready to rumble!</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full font-bold" style="background:#FAFF00;color:#1A1033;">Squad</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F0FDF4;"><div class="text-2xl mb-1">🚩</div><div class="font-black text-sm">Red or Green Flag</div><div class="text-xs mt-1" style="color:#6B6391;">Rate the behaviour</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">All Modes</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F5F3FF;"><div class="text-2xl mb-1">🗣️</div><div class="font-black text-sm">Hot Takes</div><div class="text-xs mt-1" style="color:#6B6391;">Spicy opinions only</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Ghost</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F0F9FF;"><div class="text-2xl mb-1">🕯️</div><div class="font-black text-sm">Rock Bottom</div><div class="text-xs mt-1" style="color:#6B6391;">Vulnerable, raw moments</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Ghost</span></div>
       </div>
     </div>
 
     <!-- SESSION 2 -->
     <div class="mb-10">
-      <div class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl neo font-black text-lg mb-6" style="background:#FEF3C7;">
-        🎮 Sesi 2: Sesi Game <span class="text-sm font-normal ml-1" style="color:#6B6391;">— kompetitif & chaos</span>
+      <div class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl neo font-black text-lg mb-6" style="background:#FCE7F3;">
+        🎮 Session 2: Game On <span class="text-sm font-normal ml-1" style="color:#6B6391;">— competitive &amp; chaotic</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FEF2F2;"><div class="text-2xl mb-1">🎲</div><div class="font-black text-sm">Truth or Dare</div><div class="text-xs mt-1" style="color:#6B6391;">Truth or Dare sejati</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#F97316;">Sebut Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F5F3FF;"><div class="text-2xl mb-1">🤔</div><div class="font-black text-sm">Pernah Ga?</div><div class="text-xs mt-1" style="color:#6B6391;">Pernah gak sih kamu...</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Tanpa Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FFF7ED;"><div class="text-2xl mb-1">⚖️</div><div class="font-black text-sm">Mending Mana?</div><div class="text-xs mt-1" style="color:#6B6391;">Pilihan yang susah</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Tanpa Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FCE7F3;"><div class="text-2xl mb-1">👉</div><div class="font-black text-sm">Siapa yang Paling...</div><div class="text-xs mt-1" style="color:#6B6391;">Siapa yang paling mungkin</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#F97316;">Sebut Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#EFF6FF;"><div class="text-2xl mb-1">🔮</div><div class="font-black text-sm">Dunia Paralel</div><div class="text-xs mt-1" style="color:#6B6391;">Skenario dunia lain</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Tanpa Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F0FDF4;"><div class="text-2xl mb-1">😲</div><div class="font-black text-sm">Tebak Reaksi</div><div class="text-xs mt-1" style="color:#6B6391;">Tebak reaksi temanmu</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#F97316;">Sebut Nama</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FEF2F2;"><div class="text-2xl mb-1">🎲</div><div class="font-black text-sm">Truth or Dare</div><div class="text-xs mt-1" style="color:#6B6391;">The OG classic</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full font-bold" style="background:#FAFF00;color:#1A1033;">Squad</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F5F3FF;"><div class="text-2xl mb-1">🤔</div><div class="font-black text-sm">Have You Ever?</div><div class="text-xs mt-1" style="color:#6B6391;">Confess or deflect</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Ghost</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FFF7ED;"><div class="text-2xl mb-1">⚖️</div><div class="font-black text-sm">This or That?</div><div class="text-xs mt-1" style="color:#6B6391;">No easy choices here</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Ghost</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FCE7F3;"><div class="text-2xl mb-1">👉</div><div class="font-black text-sm">Most Likely To...</div><div class="text-xs mt-1" style="color:#6B6391;">Point the finger</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full font-bold" style="background:#FAFF00;color:#1A1033;">Squad</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#EFF6FF;"><div class="text-2xl mb-1">🔮</div><div class="font-black text-sm">Parallel Universe</div><div class="text-xs mt-1" style="color:#6B6391;">Wild "what if" scenarios</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Ghost</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F0FDF4;"><div class="text-2xl mb-1">😲</div><div class="font-black text-sm">Guess the Reaction</div><div class="text-xs mt-1" style="color:#6B6391;">Predict your crew</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full font-bold" style="background:#FAFF00;color:#1A1033;">Squad</span></div>
       </div>
     </div>
 
     <!-- SESSION 3 -->
     <div class="mb-10">
       <div class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl neo font-black text-lg mb-6" style="background:#D1FAE5;">
-        🎲 Sesi 3: Minigame Playful <span class="text-sm font-normal ml-1" style="color:#6B6391;">— aksi & tantangan</span>
+        🎲 Session 3: Playful Minigames <span class="text-sm font-normal ml-1" style="color:#6B6391;">— actions &amp; challenges</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F5F3FF;"><div class="text-2xl mb-1">📸</div><div class="font-black text-sm">Galeri Kenangan</div><div class="text-xs mt-1" style="color:#6B6391;">Bongkar galeri bareng</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Tanpa Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#EFF6FF;"><div class="text-2xl mb-1">📡</div><div class="font-black text-sm">Telepati</div><div class="text-xs mt-1" style="color:#6B6391;">Satu kata serentak</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#F97316;">Sebut Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FFF7ED;"><div class="text-2xl mb-1">🧩</div><div class="font-black text-sm">Kesamaan Rahasia</div><div class="text-xs mt-1" style="color:#6B6391;">Temukan kesamaan tersembunyi</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">Semua Mode</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FCE7F3;"><div class="text-2xl mb-1">🎭</div><div class="font-black text-sm">Tukar Peran</div><div class="text-xs mt-1" style="color:#6B6391;">Gimana rasanya jadi temanmu?</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#F97316;">Sebut Nama</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F0FDF4;"><div class="text-2xl mb-1">🤫</div><div class="font-black text-sm">Hitung Sunyi</div><div class="text-xs mt-1" style="color:#6B6391;">Uji fokus & kekompakan</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Tanpa Nama</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F5F3FF;"><div class="text-2xl mb-1">📸</div><div class="font-black text-sm">Memory Lane</div><div class="text-xs mt-1" style="color:#6B6391;">Dig through the gallery</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Ghost</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#EFF6FF;"><div class="text-2xl mb-1">📡</div><div class="font-black text-sm">Telepathy</div><div class="text-xs mt-1" style="color:#6B6391;">One word, same time</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full font-bold" style="background:#FAFF00;color:#1A1033;">Squad</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FFF7ED;"><div class="text-2xl mb-1">🧩</div><div class="font-black text-sm">Secret Overlap</div><div class="text-xs mt-1" style="color:#6B6391;">Find hidden similarities</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">All Modes</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FCE7F3;"><div class="text-2xl mb-1">🎭</div><div class="font-black text-sm">Role Swap</div><div class="text-xs mt-1" style="color:#6B6391;">Walk a mile in their shoes</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full font-bold" style="background:#FAFF00;color:#1A1033;">Squad</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F0FDF4;"><div class="text-2xl mb-1">🤫</div><div class="font-black text-sm">Silent Count</div><div class="text-xs mt-1" style="color:#6B6391;">Test your sync</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Ghost</span></div>
       </div>
     </div>
 
     <!-- SESSION 4 -->
     <div class="mb-4">
-      <div class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl neo font-black text-lg mb-6" style="background:#FCE7F3;">
-        🌿 Sesi 4: Sesi Resolusi <span class="text-sm font-normal ml-1" style="color:#6B6391;">— penutup yang hangat</span>
+      <div class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl neo font-black text-lg mb-6" style="background:#EDE9FE;">
+        🌿 Session 4: Resolution <span class="text-sm font-normal ml-1" style="color:#6B6391;">— warm send-off</span>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F5F3FF;"><div class="text-2xl mb-1">🫶</div><div class="font-black text-sm">Apresiasi</div><div class="text-xs mt-1" style="color:#6B6391;">Katakan hal baik</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">Semua Mode</span></div>
-        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FFF7ED;"><div class="text-2xl mb-1">📜</div><div class="font-black text-sm">Pengakuan Penutup</div><div class="text-xs mt-1" style="color:#6B6391;">Jujur sebelum pulang</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Tanpa Nama</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#F5F3FF;"><div class="text-2xl mb-1">🫶</div><div class="font-black text-sm">Appreciation</div><div class="text-xs mt-1" style="color:#6B6391;">Say the good stuff out loud</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#6D28D9;">All Modes</span></div>
+        <div class="rounded-xl p-4 neo-sm card-hover" style="background:#FFF7ED;"><div class="text-2xl mb-1">📜</div><div class="font-black text-sm">Closing Confession</div><div class="text-xs mt-1" style="color:#6B6391;">One last honest moment</div><span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full text-white font-bold" style="background:#10B981;">Ghost</span></div>
       </div>
     </div>
   </div>
@@ -417,26 +402,26 @@
 <!-- ============================================================ HOW IT WORKS -->
 <section class="py-16 px-4" style="background:#1A1033;">
   <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-black text-white mb-3">Cara Main 🎯</h2>
-    <p class="text-gray-400 mb-12 text-lg">Simpel banget, langsung bisa main.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+    <h2 class="text-3xl md:text-4xl font-black text-white mb-3">How to Play</h2>
+    <p class="text-gray-400 mb-12 text-lg">Three steps. Zero excuses. Let's go.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="flex flex-col items-center">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-black text-white mb-4" style="background:#5B21B6;border:2px solid #9333EA;box-shadow:4px 4px 0 #9333EA;">1</div>
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-black text-dark mb-4" style="background:#FAFF00;border:2px solid #FAFF00;box-shadow:4px 4px 0 #FAFF00;">1</div>
         <div class="text-4xl mb-3">🎮</div>
-        <h3 class="text-white font-black text-lg mb-2">Pilih Mode</h3>
-        <p class="text-gray-400 text-sm">Tanpa Nama, Sebut Nama, atau Mix Keduanya — sesuaikan dengan situasi nongkrongmu.</p>
+        <h3 class="text-white font-black text-lg mb-2">Pick a Mode</h3>
+        <p class="text-gray-400 text-sm">Ghost, Squad, or Chaos — choose what fits your vibe tonight.</p>
       </div>
       <div class="flex flex-col items-center">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-black text-white mb-4" style="background:#F97316;border:2px solid #EA580C;box-shadow:4px 4px 0 #EA580C;">2</div>
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-black text-white mb-4" style="background:#FF1493;border:2px solid #FF1493;box-shadow:4px 4px 0 #FF1493;">2</div>
         <div class="text-4xl mb-3">🃏</div>
-        <h3 class="text-white font-black text-lg mb-2">Pilih Kategori</h3>
-        <p class="text-gray-400 text-sm">Pilih dari 22+ kategori kartu yang diorganisir dalam 4 sesi alur permainan.</p>
+        <h3 class="text-white font-black text-lg mb-2">Pick Categories</h3>
+        <p class="text-gray-400 text-sm">22+ categories across 4 sessions — curate your own game arc.</p>
       </div>
       <div class="flex flex-col items-center">
-        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-black text-white mb-4" style="background:#10B981;border:2px solid #059669;box-shadow:4px 4px 0 #059669;">3</div>
+        <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-black text-dark mb-4" style="background:#10B981;border:2px solid #10B981;box-shadow:4px 4px 0 #10B981;">3</div>
         <div class="text-4xl mb-3">🎉</div>
-        <h3 class="text-white font-black text-lg mb-2">Tarik & Main!</h3>
-        <p class="text-gray-400 text-sm">Gilir kartu, jawab pertanyaan, dan biarkan momen-momen tak terduga tercipta sendiri!</p>
+        <h3 class="text-white font-black text-lg mb-2">Flip &amp; Spill!</h3>
+        <p class="text-gray-400 text-sm">Draw cards, answer honestly, and let the chaos (and connection) unfold.</p>
       </div>
     </div>
   </div>
@@ -445,12 +430,13 @@
 
 <!-- ============================================================ DOWNLOAD CTA -->
 <section class="py-16 px-4">
-  <div class="max-w-2xl mx-auto text-center rounded-3xl p-10 neo-lg relative overflow-hidden" style="background:#5B21B6;">
-    <div class="absolute top-0 right-0 w-40 h-40 rounded-full opacity-10" style="background:#F97316;transform:translate(30%,-30%);"></div>
-    <h2 class="text-3xl md:text-4xl font-black text-white mb-3 relative z-10">Siap cairkan suasana? 🎉</h2>
-    <p class="text-purple-200 mb-8 text-lg relative z-10">Download gratis sekarang. Offline. Tanpa akun. Tanpa data.</p>
-    <a href="#" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg btn-press relative z-10" style="background:#FFFBF0;color:#1A1033;border:2px solid #1A1033;box-shadow:4px 4px 0 #1A1033;">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#1A1033"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.303a1 1 0 010 1.192l-2.303 2.303-2.302-2.303 2.302-2.302a1 1 0 012.303 1.11zm-11.26-7.22L17.375 10.52l-2.302 2.303-2.302-2.303L5.438 4.184z"/></svg>
+  <div class="max-w-2xl mx-auto text-center rounded-3xl p-10 neo-lg relative overflow-hidden" style="background:#FAFF00;">
+    <div class="absolute top-0 right-0 w-40 h-40 rounded-full opacity-20" style="background:#FF1493;transform:translate(30%,-30%);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 rounded-full opacity-20" style="background:#5B21B6;transform:translate(-30%,30%);"></div>
+    <h2 class="text-3xl md:text-4xl font-black text-dark mb-3 relative z-10">Ready to spill? ✦</h2>
+    <p class="text-dark mb-8 text-lg font-semibold relative z-10 opacity-70">Download free. Offline. No account. No data. Just vibes.</p>
+    <a href="#" class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-black text-lg btn-press relative z-10 transition-all" style="background:#1A1033;color:#FAFF00;border:2px solid #1A1033;box-shadow:4px 4px 0 #1A1033;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#FAFF00"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.303a1 1 0 010 1.192l-2.303 2.303-2.302-2.303 2.302-2.302a1 1 0 012.303 1.11zm-11.26-7.22L17.375 10.52l-2.302 2.303-2.302-2.303L5.438 4.184z"/></svg>
       Get it on Google Play
     </a>
   </div>
@@ -461,73 +447,27 @@
 <section id="privacy" class="py-16 px-4" style="background:#F5F3FF;">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-10">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full neo mb-4" style="background:#EDE9FE;">
-        <span class="text-sm font-bold" style="color:#5B21B6;">🔒 Kebijakan Privasi / Privacy Policy</span>
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full neo mb-4" style="background:#FAFF00;">
+        <span class="text-sm font-bold" style="color:#1A1033;">🔒 Privacy Policy / Kebijakan Privasi</span>
       </div>
-      <h2 class="text-3xl md:text-4xl font-black">Kebijakan Privasi</h2>
-      <p class="mt-2" style="color:#6B6391;">Terakhir diperbarui / Last Updated: April 2025</p>
+      <h2 class="text-3xl md:text-4xl font-black">Privacy Policy</h2>
+      <p class="mt-2" style="color:#6B6391;">Last Updated / Terakhir diperbarui: April 2025</p>
     </div>
 
     <!-- Language Tabs -->
     <div class="flex gap-2 mb-6">
-      <button class="tab-btn active px-5 py-2 rounded-xl font-black neo-sm btn-press" onclick="switchTab('privacy','id')" style="background:#EDE9FE;">🇮🇩 Bahasa Indonesia</button>
-      <button class="tab-btn px-5 py-2 rounded-xl font-black neo-sm btn-press" onclick="switchTab('privacy','en')" style="background:#fff;">🇬🇧 English</button>
+      <button class="tab-btn active px-5 py-2 rounded-xl font-black neo-sm btn-press" onclick="switchTab('privacy','en')" style="background:#FAFF00;">🇬🇧 English</button>
+      <button class="tab-btn px-5 py-2 rounded-xl font-black neo-sm btn-press" onclick="switchTab('privacy','id')" style="background:#fff;">🇮🇩 Bahasa Indonesia</button>
     </div>
 
-    <!-- Indonesian Privacy -->
-    <div id="privacy-id" class="tab-content active rounded-2xl p-6 md:p-8 neo" style="background:#FFFBF0;">
-      <h3 class="text-xl font-black mb-4">Kebijakan Privasi — Obrolan Hati</h3>
-      <p class="mb-4 text-sm" style="color:#6B6391;">Terakhir diperbarui: April 2025</p>
-
-      <div class="space-y-6 text-sm leading-relaxed">
-        <div>
-          <h4 class="font-black text-base mb-2">1. Tidak Ada Pengumpulan Data Pribadi</h4>
-          <p>Aplikasi <strong>Obrolan Hati</strong> <strong>tidak mengumpulkan, menyimpan, atau mengirimkan data pribadi apapun</strong> ke server atau layanan pihak ketiga manapun. Seluruh data sepenuhnya tetap berada di perangkat pengguna.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">2. Penyimpanan Lokal</h4>
-          <p>Nama pemain yang dimasukkan pengguna disimpan secara eksklusif menggunakan <strong>Hive</strong> — database lokal di perangkat. Tidak ada sinkronisasi cloud, tidak ada Firebase, tidak ada backend server.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">3. Tidak Memerlukan Akun</h4>
-          <p>Aplikasi ini tidak memerlukan pendaftaran, login, atau pengumpulan email dalam bentuk apapun.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">4. Tidak Ada Analytics</h4>
-          <p>Aplikasi ini tidak menggunakan Firebase Analytics, Google Analytics, Mixpanel, atau SDK pelacakan serupa apapun.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">5. Iklan (Google AdMob)</h4>
-          <p>Aplikasi menggunakan <strong>Google AdMob</strong> untuk menampilkan iklan banner dan interstitial. AdMob mungkin mengumpulkan identifikasi perangkat tertentu untuk personalisasi iklan sesuai kebijakan privasi Google sendiri. Developer tidak memiliki akses langsung ke data AdMob tersebut. Untuk informasi lebih lanjut, lihat <a href="https://policies.google.com/privacy" target="_blank" class="underline font-bold" style="color:#5B21B6;">Kebijakan Privasi Google</a>.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">6. Izin Perangkat</h4>
-          <p>Aplikasi ini <strong>tidak meminta atau menggunakan</strong> izin kamera, mikrofon, GPS, atau lokasi.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">7. Penghapusan Data</h4>
-          <p>Karena semua data bersifat lokal, pengguna dapat menghapus semua data dengan menghapus instalasi (uninstall) aplikasi dari perangkat.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">8. Privasi Anak-Anak</h4>
-          <p>Aplikasi ini ditujukan untuk pengguna berusia 13 tahun ke atas dan tidak ditujukan untuk anak-anak di bawah 13 tahun.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">9. Kontak</h4>
-          <p>Jika ada pertanyaan mengenai kebijakan privasi ini, hubungi kami melalui menu pengaturan di dalam aplikasi.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- English Privacy -->
-    <div id="privacy-en" class="tab-content rounded-2xl p-6 md:p-8 neo" style="background:#FFFBF0;">
-      <h3 class="text-xl font-black mb-4">Privacy Policy — Obrolan Hati</h3>
+    <!-- English Privacy (default) -->
+    <div id="privacy-en" class="tab-content active rounded-2xl p-6 md:p-8 neo" style="background:#FFFBF0;">
+      <h3 class="text-xl font-black mb-4">Privacy Policy — Flip &amp; Spill</h3>
       <p class="mb-4 text-sm" style="color:#6B6391;">Last Updated: April 2025</p>
-
       <div class="space-y-6 text-sm leading-relaxed">
         <div>
           <h4 class="font-black text-base mb-2">1. No Personal Data Collection</h4>
-          <p>The <strong>Obrolan Hati</strong> application <strong>does not collect, store, or transmit any personal data</strong> to any server or third-party service. All data remains exclusively on the user's device.</p>
+          <p>The <strong>Flip &amp; Spill</strong> application <strong>does not collect, store, or transmit any personal data</strong> to any server or third-party service. All data remains exclusively on the user's device.</p>
         </div>
         <div>
           <h4 class="font-black text-base mb-2">2. Local Storage Only</h4>
@@ -563,6 +503,50 @@
         </div>
       </div>
     </div>
+
+    <!-- Indonesian Privacy -->
+    <div id="privacy-id" class="tab-content rounded-2xl p-6 md:p-8 neo" style="background:#FFFBF0;">
+      <h3 class="text-xl font-black mb-4">Kebijakan Privasi — Flip &amp; Spill</h3>
+      <p class="mb-4 text-sm" style="color:#6B6391;">Terakhir diperbarui: April 2025</p>
+      <div class="space-y-6 text-sm leading-relaxed">
+        <div>
+          <h4 class="font-black text-base mb-2">1. Tidak Ada Pengumpulan Data Pribadi</h4>
+          <p>Aplikasi <strong>Flip &amp; Spill</strong> <strong>tidak mengumpulkan, menyimpan, atau mengirimkan data pribadi apapun</strong> ke server atau layanan pihak ketiga manapun. Seluruh data sepenuhnya tetap berada di perangkat pengguna.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">2. Penyimpanan Lokal</h4>
+          <p>Nama pemain yang dimasukkan pengguna disimpan secara eksklusif menggunakan <strong>Hive</strong> — database lokal di perangkat. Tidak ada sinkronisasi cloud, tidak ada Firebase, tidak ada backend server.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">3. Tidak Memerlukan Akun</h4>
+          <p>Aplikasi ini tidak memerlukan pendaftaran, login, atau pengumpulan email dalam bentuk apapun.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">4. Tidak Ada Analytics</h4>
+          <p>Aplikasi ini tidak menggunakan Firebase Analytics, Google Analytics, Mixpanel, atau SDK pelacakan serupa apapun.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">5. Iklan (Google AdMob)</h4>
+          <p>Aplikasi menggunakan <strong>Google AdMob</strong> untuk menampilkan iklan banner dan interstitial. AdMob mungkin mengumpulkan identifikasi perangkat tertentu untuk personalisasi iklan sesuai kebijakan privasi Google sendiri. Developer tidak memiliki akses langsung ke data AdMob tersebut. Untuk informasi lebih lanjut, lihat <a href="https://policies.google.com/privacy" target="_blank" class="underline font-bold" style="color:#5B21B6;">Kebijakan Privasi Google</a>.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">6. Izin Perangkat</h4>
+          <p>Aplikasi ini <strong>tidak meminta atau menggunakan</strong> izin kamera, mikrofon, GPS, atau lokasi.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">7. Penghapusan Data</h4>
+          <p>Karena semua data bersifat lokal, pengguna dapat menghapus semua data dengan menghapus instalasi (uninstall) aplikasi dari perangkat.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">8. Privasi Anak-Anak</h4>
+          <p>Aplikasi ini ditujukan untuk pengguna berusia 13 tahun ke atas dan tidak ditujukan untuk anak-anak di bawah 13 tahun.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">9. Kontak</h4>
+          <p>Jika ada pertanyaan mengenai kebijakan privasi ini, hubungi kami melalui menu pengaturan di dalam aplikasi.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -571,78 +555,31 @@
 <section id="terms" class="py-16 px-4">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-10">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full neo mb-4" style="background:#FEF3C7;">
-        <span class="text-sm font-bold" style="color:#92400E;">📜 Syarat & Ketentuan / Terms & Conditions</span>
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full neo mb-4" style="background:#FF1493;">
+        <span class="text-sm font-bold text-white">📜 Terms &amp; Conditions / Syarat &amp; Ketentuan</span>
       </div>
-      <h2 class="text-3xl md:text-4xl font-black">Syarat &amp; Ketentuan</h2>
-      <p class="mt-2" style="color:#6B6391;">Terakhir diperbarui / Last Updated: April 2025</p>
+      <h2 class="text-3xl md:text-4xl font-black">Terms &amp; Conditions</h2>
+      <p class="mt-2" style="color:#6B6391;">Last Updated / Terakhir diperbarui: April 2025</p>
     </div>
 
     <!-- Language Tabs -->
     <div class="flex gap-2 mb-6">
-      <button class="tab-btn active px-5 py-2 rounded-xl font-black neo-sm btn-press" onclick="switchTab('terms','id')" style="background:#FEF3C7;">🇮🇩 Bahasa Indonesia</button>
-      <button class="tab-btn px-5 py-2 rounded-xl font-black neo-sm btn-press" onclick="switchTab('terms','en')" style="background:#fff;">🇬🇧 English</button>
+      <button class="tab-btn active px-5 py-2 rounded-xl font-black neo-sm btn-press" onclick="switchTab('terms','en')" style="background:#FAFF00;">🇬🇧 English</button>
+      <button class="tab-btn px-5 py-2 rounded-xl font-black neo-sm btn-press" onclick="switchTab('terms','id')" style="background:#fff;">🇮🇩 Bahasa Indonesia</button>
     </div>
 
-    <!-- Indonesian Terms -->
-    <div id="terms-id" class="tab-content active rounded-2xl p-6 md:p-8 neo" style="background:#FFFBF0;">
-      <h3 class="text-xl font-black mb-4">Syarat &amp; Ketentuan — Obrolan Hati</h3>
-      <p class="mb-4 text-sm" style="color:#6B6391;">Terakhir diperbarui: April 2025</p>
-
-      <div class="space-y-6 text-sm leading-relaxed">
-        <div>
-          <h4 class="font-black text-base mb-2">1. Tujuan Aplikasi</h4>
-          <p>Obrolan Hati dirancang untuk hiburan sosial dan mempererat hubungan interpersonal. Aplikasi ini <strong>bukan pengganti terapi atau layanan profesional</strong> dalam bentuk apapun.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">2. Rating Konten</h4>
-          <p>Aplikasi ini mengandung konten yang sesuai untuk remaja dan dewasa. Beberapa kategori (Chaos Mode, Brutal Honesty, Sisi Baper) mengandung tema sosial dewasa yang berkaitan dengan emosi, kejujuran, dan hubungan. Direkomendasikan untuk pengguna usia 13 tahun ke atas.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">3. Penggunaan yang Bertanggung Jawab</h4>
-          <p>Pengguna setuju untuk:</p>
-          <ul class="list-disc ml-5 mt-2 space-y-1">
-            <li>Tidak memaksa orang lain untuk menjawab pertanyaan yang tidak nyaman</li>
-            <li>Tidak merekam atau membagikan jawaban orang lain tanpa persetujuan mereka</li>
-            <li>Menggunakan aplikasi dengan itikad baik dan rasa saling menghormati</li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">4. Batasan Tanggung Jawab</h4>
-          <p>Developer tidak bertanggung jawab atas konflik, ketidaknyamanan, atau dampak emosional yang timbul dari permainan atau konten kartu dalam aplikasi. Penggunaan sepenuhnya atas risiko pengguna sendiri.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">5. Hak Kekayaan Intelektual</h4>
-          <p>Seluruh konten kartu, nama aplikasi, logo, dan desain adalah <strong>milik developer</strong> dan dilindungi oleh hukum kekayaan intelektual yang berlaku.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">6. Hukum yang Berlaku</h4>
-          <p>Syarat dan Ketentuan ini diatur dan ditafsirkan berdasarkan <strong>hukum Republik Indonesia</strong>.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">7. Kontak</h4>
-          <p>Untuk pertanyaan atau keluhan, hubungi kami melalui menu pengaturan di dalam aplikasi.</p>
-        </div>
-        <div>
-          <h4 class="font-black text-base mb-2">8. Kartu Kustom (Segera Hadir)</h4>
-          <p>Fitur kartu kustom yang akan datang akan memerlukan kepatuhan terhadap panduan komunitas yang akan ditetapkan saat peluncuran fitur tersebut.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- English Terms -->
-    <div id="terms-en" class="tab-content rounded-2xl p-6 md:p-8 neo" style="background:#FFFBF0;">
-      <h3 class="text-xl font-black mb-4">Terms &amp; Conditions — Obrolan Hati</h3>
+    <!-- English Terms (default) -->
+    <div id="terms-en" class="tab-content active rounded-2xl p-6 md:p-8 neo" style="background:#FFFBF0;">
+      <h3 class="text-xl font-black mb-4">Terms &amp; Conditions — Flip &amp; Spill</h3>
       <p class="mb-4 text-sm" style="color:#6B6391;">Last Updated: April 2025</p>
-
       <div class="space-y-6 text-sm leading-relaxed">
         <div>
           <h4 class="font-black text-base mb-2">1. Purpose of the Application</h4>
-          <p>Obrolan Hati is designed for social entertainment and strengthening interpersonal connections. This application is <strong>not a substitute for therapy or any professional service</strong>.</p>
+          <p>Flip &amp; Spill is designed for social entertainment and strengthening interpersonal connections. This application is <strong>not a substitute for therapy or any professional service</strong>.</p>
         </div>
         <div>
           <h4 class="font-black text-base mb-2">2. Content Rating</h4>
-          <p>The application contains content suitable for teens and adults. Some categories (Chaos Mode, Brutal Honesty, Sisi Baper) contain mature social themes related to emotions, honesty, and relationships. Recommended for users aged 13 and above.</p>
+          <p>The application contains content suitable for teens and adults. Some categories (Chaos Round, Brutal Honesty, Soft Spot) contain mature social themes related to emotions, honesty, and relationships. Recommended for users aged 13 and above.</p>
         </div>
         <div>
           <h4 class="font-black text-base mb-2">3. Responsible Use</h4>
@@ -675,6 +612,51 @@
         </div>
       </div>
     </div>
+
+    <!-- Indonesian Terms -->
+    <div id="terms-id" class="tab-content rounded-2xl p-6 md:p-8 neo" style="background:#FFFBF0;">
+      <h3 class="text-xl font-black mb-4">Syarat &amp; Ketentuan — Flip &amp; Spill</h3>
+      <p class="mb-4 text-sm" style="color:#6B6391;">Terakhir diperbarui: April 2025</p>
+      <div class="space-y-6 text-sm leading-relaxed">
+        <div>
+          <h4 class="font-black text-base mb-2">1. Tujuan Aplikasi</h4>
+          <p>Flip &amp; Spill dirancang untuk hiburan sosial dan mempererat hubungan interpersonal. Aplikasi ini <strong>bukan pengganti terapi atau layanan profesional</strong> dalam bentuk apapun.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">2. Rating Konten</h4>
+          <p>Aplikasi ini mengandung konten yang sesuai untuk remaja dan dewasa. Beberapa kategori (Chaos Round, Brutal Honesty, Soft Spot) mengandung tema sosial dewasa yang berkaitan dengan emosi, kejujuran, dan hubungan. Direkomendasikan untuk pengguna usia 13 tahun ke atas.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">3. Penggunaan yang Bertanggung Jawab</h4>
+          <p>Pengguna setuju untuk:</p>
+          <ul class="list-disc ml-5 mt-2 space-y-1">
+            <li>Tidak memaksa orang lain untuk menjawab pertanyaan yang tidak nyaman</li>
+            <li>Tidak merekam atau membagikan jawaban orang lain tanpa persetujuan mereka</li>
+            <li>Menggunakan aplikasi dengan itikad baik dan rasa saling menghormati</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">4. Batasan Tanggung Jawab</h4>
+          <p>Developer tidak bertanggung jawab atas konflik, ketidaknyamanan, atau dampak emosional yang timbul dari permainan atau konten kartu dalam aplikasi. Penggunaan sepenuhnya atas risiko pengguna sendiri.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">5. Hak Kekayaan Intelektual</h4>
+          <p>Seluruh konten kartu, nama aplikasi, logo, dan desain adalah <strong>milik developer</strong> dan dilindungi oleh hukum kekayaan intelektual yang berlaku.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">6. Hukum yang Berlaku</h4>
+          <p>Syarat dan Ketentuan ini diatur dan ditafsirkan berdasarkan <strong>hukum Republik Indonesia</strong>.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">7. Kontak</h4>
+          <p>Untuk pertanyaan atau keluhan, hubungi kami melalui menu pengaturan di dalam aplikasi.</p>
+        </div>
+        <div>
+          <h4 class="font-black text-base mb-2">8. Kartu Kustom (Segera Hadir)</h4>
+          <p>Fitur kartu kustom yang akan datang akan memerlukan kepatuhan terhadap panduan komunitas yang akan ditetapkan saat peluncuran fitur tersebut.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -683,22 +665,35 @@
 <footer class="border-t-2 border-gray-900 py-10 px-4" style="background:#1A1033;">
   <div class="max-w-5xl mx-auto">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-2 text-white font-black text-xl">
-        <span class="w-9 h-9 rounded-xl flex items-center justify-center text-xl" style="background:#5B21B6;border:2px solid #9333EA;">💬</span>
-        Obrolan<span style="color:#F97316;">Hati</span>
+
+      <!-- Logo wordmark -->
+      <div class="flex items-center gap-2 font-black text-xl leading-none select-none">
+        <span class="w-9 h-9 rounded-xl flex items-center justify-center" style="background:#5B21B6;border:2px solid #9333EA;">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="4" width="13" height="17" rx="2" fill="#FAFF00" stroke="#1A1033" stroke-width="1.5"/>
+            <rect x="7" y="1" width="13" height="17" rx="2" fill="#FF1493" stroke="#1A1033" stroke-width="1.5"/>
+          </svg>
+        </span>
+        <span>
+          <span style="color:#FAFF00;">Flip</span>
+          <span style="color:#fff;"> &amp; </span>
+          <span style="color:#FF1493;">Spill</span>
+        </span>
       </div>
+
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="#home" class="text-gray-400 text-sm font-semibold hover:text-white transition-colors">Beranda</a>
-        <a href="#privacy" class="text-gray-400 text-sm font-semibold hover:text-white transition-colors">Kebijakan Privasi</a>
-        <a href="#terms" class="text-gray-400 text-sm font-semibold hover:text-white transition-colors">Syarat &amp; Ketentuan</a>
+        <a href="#home"     class="text-gray-400 text-sm font-semibold hover:text-white transition-colors">Home</a>
+        <a href="#privacy"  class="text-gray-400 text-sm font-semibold hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#terms"    class="text-gray-400 text-sm font-semibold hover:text-white transition-colors">Terms &amp; Conditions</a>
         <a href="#download" class="text-gray-400 text-sm font-semibold hover:text-white transition-colors">Download</a>
       </div>
+
       <div class="text-gray-500 text-xs text-center">
-        © 2025 <span class="text-white font-bold">obrolanhati</span>. All rights reserved.
+        © 2025 <span class="text-white font-bold">flipandspill</span>. All rights reserved.
       </div>
     </div>
     <div class="mt-6 text-center">
-      <p class="text-gray-600 text-xs">Made with 💜 untuk anak muda Indonesia. Offline. Privat. Bebas.</p>
+      <p class="text-gray-600 text-xs">Made with ✦ for curious people everywhere. Offline. Private. Free.</p>
     </div>
   </div>
 </footer>
@@ -711,28 +706,30 @@
   }
 
   function switchTab(section, lang) {
-    // Get all tab buttons and contents for this section
     const sectionEl = document.getElementById(section);
-    const allContents = sectionEl.querySelectorAll('.tab-content');
-    const allBtns = sectionEl.querySelectorAll('.tab-btn');
+    const allContents = sectionEl ? sectionEl.querySelectorAll('.tab-content') : document.querySelectorAll('#' + section + '-en, #' + section + '-id');
+    const allBtns = event.target.closest('.max-w-4xl').querySelectorAll('.tab-btn');
 
-    allContents.forEach(c => c.classList.remove('active'));
+    // Hide all contents for this section
+    document.getElementById(section + '-en').classList.remove('active');
+    document.getElementById(section + '-id').classList.remove('active');
+
+    // Reset all tab buttons
     allBtns.forEach(b => {
       b.classList.remove('active');
       b.style.background = '#fff';
+      b.style.color = '#1A1033';
     });
 
+    // Show target content
     const targetContent = document.getElementById(section + '-' + lang);
     if (targetContent) targetContent.classList.add('active');
 
-    // Find and activate clicked button
+    // Activate clicked button
     const clickedBtn = event.target;
     clickedBtn.classList.add('active');
-    if (section === 'privacy') {
-      clickedBtn.style.background = lang === 'id' ? '#EDE9FE' : '#EDE9FE';
-    } else {
-      clickedBtn.style.background = lang === 'id' ? '#FEF3C7' : '#FEF3C7';
-    }
+    clickedBtn.style.background = '#5B21B6';
+    clickedBtn.style.color = '#fff';
   }
 </script>
 
